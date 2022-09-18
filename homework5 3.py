@@ -42,7 +42,7 @@ def proverka_na_pobedu():
         return True
     if A[rows][colums] == A[0][1] and A[rows][colums] == A[1][1] and A[rows][colums] == A[2][1]:
         return True
-    if A[rows][colums] == A[0][2] and A[rows][colums] == A[1][2] and A[rows][colums] == A[1][2]:
+    if A[rows][colums] == A[0][2] and A[rows][colums] == A[1][2] and A[rows][colums] == A[2][2]:
         return True
     if A[rows][colums] == A[0][0] and A[rows][colums] == A[1][1] and A[rows][colums] == A[2][2]:
         return True
@@ -50,7 +50,13 @@ def proverka_na_pobedu():
         return True
 
 lot = int(input("Какой игрок начинает  1 или 2 ? :  "))
-while True:
+count = 0
+win = 0
+while True :
+    if count == 9:
+        print("Ничья")
+        win = 12
+        break
     if lot == 1 :
         print('Ходит игрок 1 ')
         try:
@@ -66,6 +72,7 @@ while True:
         A[rows][colums] = 'X'
         proverka = proverka_na_pobedu()
         if proverka == True:
+            win = 1
             break
         print(*A[0])
         print(*A[1])
@@ -86,12 +93,17 @@ while True:
         A[rows][colums] = 'O'
         proverka = proverka_na_pobedu()
         if proverka == True:
+            win = 2
             break
         print(*A[0])
         print(*A[1])
         print(*A[2])
         lot = 1
-print(f"Победил игрок {lot} . Поздравляем !!!")
+    count += 1
+if (win == 1 or win == 2):
+    print(f"Победил игрок {lot} . Поздравляем !!!")
+else:
+    print(f"Победила дружба !!!")
 print(f"Итоговая табличка выглядит следующим образом : ")
 print(*A[0])
 print(*A[1])
