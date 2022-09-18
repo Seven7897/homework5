@@ -1,5 +1,5 @@
 import random
-
+# Подумайте как наделить бота ""интеллектом""
 
 def player_step():
     try:
