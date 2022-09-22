@@ -15,8 +15,9 @@ j = 0
 i = 0
 print(f"long  {len(list)}")
 while i < len(list) - 1 :
-    count = 2
+    count = 1
     if list[i] == list[i + 1]:
+        count = 2
         k = i + 2
         while True:
             if list[i] == list[k]:
@@ -25,7 +26,7 @@ while i < len(list) - 1 :
             k += 1
             if k == len(list):
                 break
-    if count < 3:
+    if count < 2:
         list2.append(list[i])
         if i == len(list) - 2:
             list2.append(list[i + 1 ])
